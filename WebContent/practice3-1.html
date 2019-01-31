@@ -47,41 +47,60 @@ body					{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
 </style>
 
 <script>
-i=10;
-j=3.14;
-s="hello";
+var liSelected = null;
 
-f = function() { //함수생성
-	console.log("...");	
+var onClicked = function(){
+	console.log("clicked-"+this)
+	//console.log("clicked-"+li.innerText);
+	if(liSelected != null){
+		liSelected.className="";
+	}
+	 this.className = "seleted";
+	liSelected = this;
 };
-
-a = [];	// 배열 객체
-o = {};	//빈 객체
-o.name = "hello";
-o.age = 10;
-
-o = {
-		"name" : "hello",
-		"age" : 10
-		
+	
+window.onload = function(){
+	var li = document.getElementById("tab1");
+	li.onclick = onClicked;
+	
+	var li = document.getElementById("tab2");
+	li.onclick = onClicked;
+	
+	var li = document.getElementById("tab3");
+	li.onclick = onClicked;
+	
+	var li = document.getElementById("tab4");
+	li.onclick = onClicked;
+	
+	var li = document.getElementById("tab5");
+	li.onclick = onClicked;
 }
-console.log(window.o.name);
 
+//li = document.getElementById("tab1");
+//console.log(li);
+/*
+liSelected = null;
 function onClicked(li){
 	//console.log("clicked-"+li.innerText);
-	li.className = "seleted";
+	if(liSeleted != null){
+		liSelected.className("");
+	}
 };
+	li.className = "seleted";
+	liSelected = li;
+*/
+
 </script>
 
 </head>
 <body>
 <div class="tab-box">
 	<ul id="tab">
-        <li onclick='onClicked(this);'>메뉴 1</li>
-        <li onclick='onClicked(this);'>메뉴 2</li>
-        <li onclick='onClicked(this);'>메뉴 3</li>
-        <li onclick='onClicked(this);'>메뉴 4</li>
-        <li onclick='onClicked(this);'>메뉴 5</li>
+        <li id="tab1">메뉴 1</li>
+        <li id="tab2">메뉴 2</li>
+        <li id="tab3">메뉴 3</li>
+        <li id="tab4">메뉴 4</li>
+        <li id="tab5">메뉴 5</li>
     </ul>
     <div id ="tab-view">
     	탭뷰입니다.
