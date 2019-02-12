@@ -4,75 +4,53 @@
 <meta charset="utf-8">
 <title>리스트를 이용한 메뉴 만들기</title>
 <style type="text/css">
-*						{ margin:0; padding:0 }
-body					{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
-
+*	 { margin:0; padding:0 }
+body { font-family: '맑은 고딕', 돋움; font-size:0.75em; color:#333 }
 .tab-box {
 	width:520px;
 	margin:100px auto;
 }
-
 .tab-box ul {
-	height:29px;
-	list-style: none;
+	height: 29px;
+	list-style-type: none;
 }
-
 .tab-box ul li {
 	float: right;
-	border: 1px solid #999;
+	border:1px solid #999;
 	margin-right:2px;
 	padding-top:5px;
 	width:100px;
 	height:22px;
-	text-align: center;
-	background-color: #ccc;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	text-align:center;
+	background-color:#ccc;
+	border-radius:10px 10px 0 0;
 	cursor: pointer;
 }
-
 .tab-box ul li.selected {
 	background-color: #fc6;
 	cursor: default;
 }
-
-.tab-box div{
-	margin-top:-1px;
-	width:516px;
+.tab-box div {
+	width: 516px;
+	margin-top: -1px;
 	border: 1px solid #999;
 	line-height: 200px;
 	text-align: center;
 }
-
 </style>
-
 <script>
-i=10;
-j=3.14;
-s="hello";
-
-f = function() { //함수생성
-	console.log("...");	
-};
-
-a = [];	// 배열 객체
-o = {};	//빈 객체
-o.name = "hello";
-o.age = 10;
-
-o = {
-		"name" : "hello",
-		"age" : 10
-		
-}
-console.log(window.o.name);
-
+var liSelected = null;
 function onClicked(li){
-	//console.log("clicked-"+li.innerText);
-	li.className = "seleted";
-};
+	if(liSelected != null){
+		/* unselect */
+		liSelected.className = "";
+	}
+	
+	/* select */
+	li.className = "selected";
+	liSelected = li;
+}
 </script>
-
 </head>
 <body>
 <div class="tab-box">
@@ -83,7 +61,7 @@ function onClicked(li){
         <li onclick='onClicked(this);'>메뉴 4</li>
         <li onclick='onClicked(this);'>메뉴 5</li>
     </ul>
-    <div id ="tab-view">
+    <div id="tabview">
     	탭뷰입니다.
     </div>
 </div>    
